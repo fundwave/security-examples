@@ -1,0 +1,15 @@
+default-src 'none'; ## this is the default policy to be used for resources with no specific directives defined. Should be set to none as a failsafe in case you miss any type of resource.
+img-src 'self' data: blob: ## This is where your image origins and other sources you wanna render images from go.;
+script-src 'self' ## This is probably the most important to safeguard and has the highest impact since this defines origins from where scripts can be executed. This includes your origins and CDNs you might use to fetch libraries;
+style-src 'self' 'unsafe-inline' ## origins for fetching styles;
+manifest-src data: ## This specifies which manifests can be applied to the resource;
+font-src 'self' data: ## origins for fetching fonts;
+
+connect-src 'self' data: ## this restricts the URL's that can be loaded using scripts  eg websockets, fetch()
+
+frame-src 'self' data: blob: ## this defines which origins/sources can be allowed to load in frames like <frame> or <iframe>
+form-action 'none'; ## specify targets for form submission, it is advisable to be none
+block-all-mixed-content; ## this prevents assets to be loaded over HTTP when page is HTTPS ( now deprecated )
+upgrade-insecure-requests; ## rewrites legacy HTTP urls as HTTPS but isn't a replacement for HSTS as doesn't work on top level navigation.
+base-uri 'self'; ## values of base html elements are restricted here
+object-src 'self' ## specifices sources for valid <object> and <embed> objects
